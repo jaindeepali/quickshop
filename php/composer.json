@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jcroll/foursquare-api-client": "1.0.*"
+    }
+}
