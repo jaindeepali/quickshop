@@ -3,7 +3,7 @@ ini_set('display_errors',1);
 error_reporting(E_ALL | E_STRICT);
 
 require_once('libs/limonade.php');//Include the mvc limonade framework
-//require_once('config/config.php');//Include Configuration file
+require_once('config/config.php');//Include Configuration file
 
 
 /*Including Controllers and Models*/
@@ -26,5 +26,11 @@ function not_found()
 /*Routes: */
 
 dispatch('/','home');
+dispatch_post('/','search');
+// dispatch('/search','search');
+// function search()
+// {
+// 	echo "gfcd";
+// }
 
 run();

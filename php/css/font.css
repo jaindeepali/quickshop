@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'josefinsans-normal';
+  font-style: normal;
+  font-weight: 400;
+  src: local('josefinsans-normal'), local('josefinsans-normal'), url(./fonts/josefinsans-normal.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Hero_Light';
+  font-style: normal;
+  src: local('Hero_Light'), local('Hero_Light'), url(./fonts/Hero_Light.otf) format('truetype');
+}
