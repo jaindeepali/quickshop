@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title><?=$title?></title>
-  <link rel="stylesheet" href="css/reset.css">
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/pure-min.css">
   <link rel="stylesheet" href="css/pure-skin-bf.css">
@@ -13,7 +13,7 @@
   <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/ajax.js"></script>
 </head>
-<body class="pure-skin-bf ">
+<body class="pure-skin-bf">
 	<center>
 	<div class="pure-g topbar">
 		<div class="pure-u-1-2">
@@ -28,7 +28,7 @@
 			<input type = "text" name = "keyword" placeholder = "Search Product">
 			<!-- <input type = "text" name = "brand" placeholder = "Brand (Optional)"> -->
 			<!-- <button id = "submit" class = "pure-button">Search</button> -->
-			<input type = "submit" value="Submit" class="pure-button">
+			<input type = "submit" value="Compare" class="pure-button">
 		</form>
 	</div>
 	<div class="content">

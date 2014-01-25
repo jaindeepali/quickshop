@@ -1,5 +1,5 @@
 body {
-    background-color: #FDFDFD;
+    /*background-color: #FDFDFD;*/
 }
 
 /* from PURE buttons-core.css */
@@ -927,7 +927,7 @@ margin: 7px 2px;
 
 /* SELECTED MENU ITEM */
 .pure-skin-bf .pure-menu li.pure-menu-selected a {
-    background-color: #3C8CAF;
+    /*background-color: #3C8CAF;*/
     color: #f7fbfc;
 }
 

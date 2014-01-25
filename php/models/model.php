@@ -49,7 +49,7 @@ class model {
 		  $results  = "<h3>Oops! The request was not successful. Make sure you are using a valid ";
 		  $results .= "AppID for the Production environment.</h3>";
 		}
-		//var_dump($results);
+
 		return $results;
 	}
 
@@ -58,19 +58,65 @@ class model {
 		// Create DOM from URL or file
 		$page = 1;
 		$html = new simple_html_dom();
+		$safequery = urlencode($this->keyword);
 
 		// Load HTML from a URL 
 		//$html->load_file('http://www.google.com/');
-		$html ->load_file('http://www.amazon.in/s/ref=sr_pg_'.$page.'?rh=i%3Aaps%2Ck%3A'.$this->keyword.'&page=2&keywords=harry+potter&ie=UTF8&qid=1390657044');
+		$html ->load_file('http://www.amazon.in/s/ref=sr_pg_'.$page.'?rh=i%3Aaps%2Ck%3A'.$this->keyword.'&page=2&keywords='.$safequery.'&ie=UTF8&qid=1390657044');
 
 		foreach($html->find('div.prod') as $product) {
-		    $item['title']     = $product->find('h3.newaps', 0)->plaintext;
-		    $item['price']    = $product->find('.newp', 0)->plaintext;
-		    $item['img'] = $product->find('div.imageBox', 0)->outertext;
+		    $item['title'] = $product->find('h3.newaps', 0)->plaintext;
+		    $item['price'] = $product->find('ul', 0)->plaintext;
+		    $item['img'] = $product->find('div.imageBox img', 0)->src;
 		    $item['link'] = $product->find('h3.newaps a', 0)->href;
 		    $products[] = $item;
 		}
+		//var_dump($products);
+		return $products;
+	}
 
+	public function flipkart_get_data()
+	{
+		// Create DOM from URL or file
+		$page = 1;
+		$html = new simple_html_dom();
+		$safequery = urlencode($this->keyword);
+
+		// Load HTML from a URL 
+		//$html->load_file('http://www.google.com/');
+		$html ->load_file('http://www.flipkart.com/search?q='.$safequery);
+
+		foreach($html->find('div.product-unit') as $product) {
+		    $item['title'] = $product->find('div.pu-title', 0)->plaintext;
+		    $item['price'] = $product->find('div.pu-final', 0)->plaintext;
+		    $imageData = $product->find('div.pu-visual-section img', 0)->attr['data-src'];
+		    $item['img'] = urldecode($imageData);
+		    $item['link'] = 'http://www.flipkart.com'.$product->find('div.pu-visual-section a', 0)->href;
+		    $products[] = $item;
+		}
+		//var_dump($products);
+		return $products;
+	}
+
+	public function snapdeal_get_data()
+	{
+		// Create DOM from URL or file
+		$page = 1;
+		$html = new simple_html_dom();
+		$safequery = urlencode($this->keyword);
+
+		// Load HTML from a URL 
+		//$html->load_file('http://www.google.com/');
+		$html ->load_file('http://www.snapdeal.com/search?keyword='.$safequery.'&santizedKeyword=&catId=1&categoryId=12&suggested=true&vertical=p&noOfResults=20&clickSrc=go_header&lastKeyword=&prodCatId=&changeBackToAll=false&foundInAll=false&categoryIdSearched=&cityPageUrl=&url=&utmContent=&catalogID=&dealDetail=');
+
+		foreach($html->find('div.product_grid_cont') as $product) {
+		    $item['title'] = $product->find('div.product_grid_cont_heading', 0)->plaintext;
+		    $item['price'] = $product->find('div.product_price span.originalprice', 0)->plaintext;
+		    $item['img'] = $product->find('div.product-image img', 0)->lazysrc;
+		    $item['link'] = $product->find('a', 0)->href;
+		    $products[] = $item;
+		}
+		//var_dump($products);
 		return $products;
 	}
 }
