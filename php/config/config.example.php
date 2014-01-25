@@ -1,5 +1,6 @@
 <?php
-global $ebay_app_id = '';
-global $foursquare_client_id = '';
-global $foursquare_client_secret = '';
+option('ebay_app_id','');
+option('foursquare_client_id','');
+option('foursquare_client_secret','');
+
 ?>
