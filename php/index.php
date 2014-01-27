@@ -26,11 +26,9 @@ function not_found()
 /*Routes: */
 
 dispatch('/','home');
-dispatch_post('/','search');
-// dispatch('/search','search');
-// function search()
-// {
-// 	echo "gfcd";
-// }
+dispatch_post('/search','search');
+dispatch('/stores/:keyword','find_stores');
+dispatch_post('/comment','add_comment');
+dispatch('/analysis', 'analysis');
 
 run();
