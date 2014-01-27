@@ -9,8 +9,6 @@ $(document).ready(function(){
 
 	    hostipInfo = xmlhttp.responseText;
 	    var ip = JSON.parse(hostipInfo);
-		// var elem=$(this);
-		// var nov = $(".no_of_votes"+$(this).attr('id'));
 		var keyword = $("#prod").val();
 		$('.content').html("<img src='./public/images/ajax-loader.gif'>");
 		$.ajax({

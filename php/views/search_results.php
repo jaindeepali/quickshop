@@ -1,7 +1,6 @@
 <div class = "pure-g">
 	<div class="pure-u-1-3 pure-g">
 	<h1>Snapdeal</h1>
-	<!-- <a class="add" id="snapdeal"><h2>Add comment</h2></a> -->
 	<?if($search_results['snapdeal']):?>
 	<?foreach ($search_results['snapdeal'] as $key => $value):?>
 		<div class="product-snapdeal product">

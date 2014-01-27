@@ -22,7 +22,6 @@ function find_stores($keyword)
 	option('ipinfo',$_GET['ipinfo']);
 	$model = new model($keyword);
 	$data = array();
-	//$data = "asax";
 	$data = $model->find_stores();
 	set('stores_results', $data);
 	return render('stores_result.php', null);
