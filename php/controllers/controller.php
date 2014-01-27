@@ -2,7 +2,7 @@
 
 function home()
 {
-		return render('home.php');
+	return render('home.php');
 }
 
 function search()
